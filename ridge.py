@@ -9,6 +9,7 @@ class Ridge():
     '''Weighted Ridge Regression'''
     def __init__(self, f = 200, alpha=20, lambd = 0.1, thres = 0 ,epsilon = 0.1):
         self.f = f
+        self.thres = thres
         self.alpha = alpha
         self.lambd = lambd
         self.epsilon = epsilon
@@ -25,7 +26,7 @@ class Ridge():
         C = np.zeros((k,n))
         for u in range(k): # users
             for m in range(n): # movies
-                if A[u][m]>thres : 
+                if A[u][m]>self.thres : 
                     self.P[u][m] = 1
                 else : 
                     self.P[u][m] = 0
